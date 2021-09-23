@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To do list</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div id="task-form">
+        <form>
+          <h2>Задачи</h2>
+            <label>Название:</label>
+            <input type="text" name="name" value="">
+            <label>Дата:</label>
+            <input type="text" name="date" value="">
+            <hr>
+            <button id="save-task">Сохранить</button>
+        </form>
+    </div>
+    <h1>Список дел(<span th:text="${tasksCount}">0</span>)</h1>
+    <button id="show-add-task-form">Добавить задачу</button>
+<!--    <br><br>-->
+    <button id="show-edit-task-form">Изменить задачу</button>
+<!--    <br><br>-->
+    <button id="show-delete-task-form">Удалить задачу</button>
+    <br><br>
+    <div id="task-list">
+        <div th:each="task : ${tasks}">
+            <a href="#" class="task-link" th:attr="data-id=${task.id}" th:text="${task.name}"></a>
+        </div>
+    </div>
+</body>
+</html>
